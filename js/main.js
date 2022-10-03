@@ -1,9 +1,89 @@
+//* <------------- Simulador de shop --------------->*//
+// Usando onclick en Carrito(NavBar)
+const users = "admin";
+const pass_users = "1234";
+function solicitarDatos (){
+	let user = prompt("Ingrese nombre de usuario");
+	let pass = prompt("Ingrese su contraseña");
+	if (validarDatos (user,pass)){
+		iniciar_carrito()
+	}else{
+		alert("Usuario o contraseña no validas")
+	}
+}
+
+function validarDatos(user,pass){
+	if(user === users && pass === pass_users){
+		return true;
+	}else{
+		return false;
+	}
+}
+
+function iniciar_carrito(){
+	let productos = "";
+	let  finalizar_carrito = false;
+	while(!finalizar_carrito){
+		let code = prompt("Ingrese codigo del producto que desea comprar:\n1 Monitor\n2 Teclado\n3 Mouse\n4 Cpu completo\n5 Placa de video \napretar cancelar para finalizar")
+		let producto = obtenerProducto(code)
+		
+		if(producto){
+			console.log("producto agregado con exito: "+producto)
+			productos += "\n"+producto
+
+		}else{
+			if (code == null){
+				finalizar_carrito = true;
+			}else{
+			alert("Ingrese un producto valido")
+			
+		}
+	}
+}
+if (productos != ""){
+	let respuesta = confirm ("Desea concretar la compra de :"+productos);
+	if (respuesta){
+	alert("Gracias por comprar en nuestra tienda online");
+	}
+}
+}
+function obtenerProducto(code){ 
+
+
+    let producto  ;
+    switch(code){
+		case "1" : 
+                    producto = "Monitor";
+                    break;
+        case "2" : 
+                    producto = "Teclado";
+                    break;
+        case "3" : 
+                    producto = "Mouse" ;
+                    break;
+        case "4" : 
+                    producto = "Cpu completo"
+                    break;       
+        case "5" : 
+                    producto = "Placa de video" ;
+                    break;
+
+        default :
+                    producto = false;           
+
+    }
+	return producto ;
+}  
+
+//Nav Bar.
+//***********************************//
+
 const btnDepartamentos = document.getElementById('btn-departamentos'),
-	  btnCerrarMenu = document.getElementById('btn-menu-cerrar'),
-	  grid = document.getElementById('grid'),
-	  contenedorEnlacesNav = document.querySelector('#menu .contenedor-enlaces-nav'),
-	  contenedorSubCategorias = document.querySelector('#grid .contenedor-subcategorias'),
-	  esDispositivoMovil = () => window.innerWidth <= 800;
+	btnCerrarMenu = document.getElementById('btn-menu-cerrar'),
+	grid = document.getElementById('grid'),
+	contenedorEnlacesNav = document.querySelector('#menu .contenedor-enlaces-nav'),
+	contenedorSubCategorias = document.querySelector('#grid .contenedor-subcategorias'),
+	esDispositivoMovil = () => window.innerWidth <= 800;
 
 btnDepartamentos.addEventListener('mouseover', () => {
 	if(!esDispositivoMovil()){
