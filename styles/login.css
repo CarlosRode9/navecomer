@@ -1,0 +1,8 @@
+body{
+    background: rgb(34,193,195);
+    background: linear-gradient(112deg, rgba(34,193,195,1) 0%, rgba(45,253,252,0) 100%);    
+}
+.bg-login{
+    background-image: url(../img/login/store.png);
+    background-position: center;
+}

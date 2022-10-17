@@ -1,3 +1,20 @@
+//* <------------- Agregando login --------------->*//
+// Usando .addEventListener .getElementById
+const username = document.getElementById('username')
+const password = document.getElementById ('password')
+const button = document.getElementById('button')
+button.addEventListener('click', (e) => {
+	e.preventDefault();
+	let registros ={
+		username: username.value,
+		password: password.value,
+	}
+	console.log(registros)
+})
+
+
+
+
 //* <------------- Simulador de shop --------------->*//
 // Usando onclick en Carrito(NavBar)
 const users = "admin";
@@ -76,6 +93,7 @@ function obtenerProducto(code){
 }  
 
 //Nav Bar.
+// Usando .addEventListener .getElementById
 //***********************************//
 
 const btnDepartamentos = document.getElementById('btn-departamentos'),
@@ -84,8 +102,7 @@ const btnDepartamentos = document.getElementById('btn-departamentos'),
 	contenedorEnlacesNav = document.querySelector('#menu .contenedor-enlaces-nav'),
 	contenedorSubCategorias = document.querySelector('#grid .contenedor-subcategorias'),
 	esDispositivoMovil = () => window.innerWidth <= 800;
-
-btnDepartamentos.addEventListener('mouseover', () => {
+	btnDepartamentos.addEventListener('mouseover', () => {
 	if(!esDispositivoMovil()){
 		grid.classList.add('activo');
 	}
