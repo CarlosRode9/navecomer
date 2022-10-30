@@ -428,3 +428,8 @@ main article {
 	max-height: 100%;
 
 }
+.logo{
+	width: 60px;
+	height: 60px;
+	position: fixed;
+}
