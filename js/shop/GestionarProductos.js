@@ -15,7 +15,7 @@ class GestionarProductos {
                 "id": 1,
                 "nombre": "Asus Gamer plus Gf100",
                 "descripcion": "Desarrollada por procesadores hasta Intel® Core™ i7 generacion 13 "+"Gráficos 3060ti NVIDIA® GeForce RTX™",
-                "precio": 370000,
+                "precio": 90000,
                 "stock": 50,
                 "img": "gamerop.png",
                 "destacado": 1
@@ -24,7 +24,7 @@ class GestionarProductos {
                 "id": 2,
                 "nombre": "Lenovo Legion i7 13700",
                 "descripcion": "Desarrollada por procesadores hasta Intel® Core™ i7 generacion 13 "+"Gráficos hasta NVIDIA® GeForce RTX™",
-                "precio": 150000,
+                "precio": 80000,
                 "stock": 50,
                 "img": "ntLenovo.png",
                 "destacado": 1
@@ -32,9 +32,9 @@ class GestionarProductos {
 
             {
                 "id": 3,
-                "nombre": "",
-                "descripcion": "",
-                "precio": 8858,
+                "nombre": "Los Miserables",
+                "descripcion": " Víctor Hugo",
+                "precio": 885,
                 "stock": 50,
                 "img": "",
                 "destacado": 0
@@ -43,14 +43,32 @@ class GestionarProductos {
                 "id": 4,
                 "nombre": "Mac Book",
                 "descripcion": "Desarrollada por procesadores hasta Intel® Core™ i5 generacion 7ma"+"Gráficos hasta NVIDIA® Radeon  AMD™",
-                "precio": 233701,
+                "precio": 99999,
                 "stock": 50,
                 "img": "ntMac.png",
                 "destacado": 1
             }
+/*             {
+                "id": 5,
+                "nombre": "El Alquimista",
+                "descripcion": "Paulo Coelho",
+                "precio": 959,
+                "stock": 50,
+                "img": "ntMac.png",
+                "destacado": 0
+            }
+            {
+                "id": 6,
+                "nombre": "El Alquimista",
+                "descripcion": "Paulo Coelho",
+                "precio": 959,
+                "stock": 50,
+                "img": "ntMac.png",
+                "destacado": 
+            } */
         ]
 
-        // Solo quiero mostrar los articulos destacados.
+// Solo quiero mostrar los articulos destacados.
         let productosDestacados = productos.filter( prod => prod.destacado == 1 );
 
         this.cargarProductos( productosDestacados );
@@ -61,7 +79,7 @@ class GestionarProductos {
     }
 
 
-    // Funcion encargada de cargar los productos en la pagina
+// Funcion encargada de cargar los productos en la pagina
     cargarProductos( productos ) { 
         
         const divProductos    = document.querySelector('#productos');
@@ -121,54 +139,52 @@ class GestionarProductos {
     addCart( infoProducto ) {
         
         
-       const existe = carrito.some( producto => producto.id === infoProducto.id );
+    const existe = carrito.some( producto => producto.id === infoProducto.id );
 
-       // si ya existe necesito aumentar el contador
-       if(existe) 
-       {
-          
-           const articulos = carrito.map( producto => {
+// si ya existe necesito aumentar el contador
+    if(existe) 
+        {
+        const articulos = carrito.map( producto => {
 
-               if(producto.id === infoProducto.id)
-               {
-                   producto.cantidad++;
-                   return producto;
-               }
-               else
-               {
-                   return producto;
-               }
+            if(producto.id === infoProducto.id)
+            {
+                producto.cantidad++;
+                return producto;
+            }
+            else
+            {
+                return producto;
+            }
 
-               carrito = articulos;               
+            carrito = articulos;               
 
-           })
+            })
 
-                      // Mostramos un msg con el resultado de la operacion
-                      Toastify({
+                // Mostramos un msg con el resultado de la operacion
+                    Toastify({
                         text: "Se actualizo la cantidad del producto",
                         duration: 2000,
                         gravity: 'bottom'
         
                     }).showToast();
-           
     
-       }
-       else 
-       {
-           // Como no existe lo agrego
-           carrito.push(infoProducto);
+    }
+    else 
+    {
+                // Como no existe lo agrego
+        carrito.push(infoProducto);
 
-           Toastify({
-            text: "Se agrego el producto",
+            Toastify({
+            text: "Se agrego al carrito",
             duration: 3000,
             gravity: 'bottom'
 
         }).showToast();
-          
 
-       }
 
-       this.actualizarCarrito();
+    }
+
+    this.actualizarCarrito();
     }
 
     //Contabilizo las cantidad de productos
@@ -220,20 +236,7 @@ class GestionarProductos {
 
         carrito.forEach( ( producto ) => {
 
-
-            /*
-            const id = producto.id ;
-            const nombre = producto.nombre ;
-            const precio = producto.precio ;
-            const img = producto.img ;
-            const cantidad = producto.cantidad ;
-            */
-
-           // aplicamos desestructuracion de objeto
             const { id, nombre, precio, img, cantidad  } = producto;
-
-    
-
             const row = document.createElement('div');
             row.classList.add('row');
             
@@ -241,7 +244,7 @@ class GestionarProductos {
 
             row.innerHTML = `
                 
-                        <div class="col-3 d-flex align-items-center p-2 border-bottom">
+                        <div class="col-3 d-flex align-items-center p-3 border-bottom">
                             <img src="${img}" width="80"/>
                         </div>
 
@@ -283,17 +286,16 @@ class GestionarProductos {
         detalleCarrito.appendChild(row);
     }
 
-  
     // A partir de un id se elimina el producto
     eliminarArticulo( id ) { 
 
         Swal.fire({
-            title: '"Esta seguro de eliminar el producto ?"',
-            showCancelButton: true,
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Si, eliminarlo',
-            cancelButtonText: `Cancelar`,
-          }).then((result) => {
+                title: '"Esta seguro de eliminar el producto ?"',
+                showCancelButton: true,
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Si, eliminarlo',
+                cancelButtonText: `Cancelar`,
+            }).then((result) => {
             
             if (result.isConfirmed) 
             {
@@ -303,13 +305,12 @@ class GestionarProductos {
                 this.mostrar_notificacion("el articulo fue eliminado del carrito",2000,"bottom");
 
             }            
-          })         
-          
+            })         
+
     }
     
     // Guardar en Storage
     guardarCarrito() { 
-       
         localStorage.setItem(key_carrito, JSON.stringify( carrito ));
         const dt = DateTime.now();
         let date =  dt.toLocaleString();       
@@ -323,12 +324,9 @@ class GestionarProductos {
         headerProductos.innerHTML = msg;
     }
 
-
+//resultado
 mostrar_notificacion (texto,duracion,posicion){
-
-
-                          // Mostramos un msg con el resultado de la operacion
-                          Toastify({
+                        Toastify({
                             text: texto,
                             duration: duracion,
                             gravity: posicion
