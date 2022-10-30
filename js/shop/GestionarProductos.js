@@ -13,12 +13,12 @@ class GestionarProductos {
 
             {
                 "id": 1,
-                "nombre": "",
-                "descripcion": "",
-                "precio": 8858,
+                "nombre": "Asus Gamer plus Gf100",
+                "descripcion": "Desarrollada por procesadores hasta Intel® Core™ i7 generacion 13 "+"Gráficos 3060ti NVIDIA® GeForce RTX™",
+                "precio": 370000,
                 "stock": 50,
-                "img": "ntGamer.png",
-                "destacado": 0
+                "img": "gamerop.png",
+                "destacado": 1
             },
             {
                 "id": 2,
@@ -43,7 +43,7 @@ class GestionarProductos {
                 "id": 4,
                 "nombre": "Mac Book",
                 "descripcion": "Desarrollada por procesadores hasta Intel® Core™ i5 generacion 7ma"+"Gráficos hasta NVIDIA® Radeon  AMD™",
-                "precio": 23371,
+                "precio": 233701,
                 "stock": 50,
                 "img": "ntMac.png",
                 "destacado": 1
