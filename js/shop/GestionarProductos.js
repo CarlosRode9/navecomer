@@ -42,7 +42,7 @@ class GestionarProductos {
             {
                 "id": 4,
                 "nombre": "Mac Book",
-                "descripcion": "Desarrollada por procesadores hasta Intel® Core™ i5 generacion 7ma",
+                "descripcion": "Desarrollada por procesadores hasta Intel® Core™ i5 generacion 7ma"+"Gráficos hasta NVIDIA® Radeon  AMD™",
                 "precio": 23371,
                 "stock": 50,
                 "img": "ntMac.png",
