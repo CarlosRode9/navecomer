@@ -1,8 +1,25 @@
-body{
+/* body{
     background: rgb(34,193,195);
     background: linear-gradient(112deg, rgba(34,193,195,1) 0%, rgba(45,253,252,0) 100%);    
+    
+} */
+body {
+    background: linear-gradient(to right, #2e5786 0%,#11a1da 19%,#2590e7 40%,#27adfa 60%,#3db8ff 83%,#2e5786 100%); 
+    background-size: 10000px 100%;
+    animation: bg 15s linear infinite ;
 }
+
+@keyframes bg{
+0%{
+    background-position-x: 0;
+}100%{
+    background-position-x: 10000px;
+    }
+}
+
 .bg-login{
+    max-height: 900px;
+    height: 750px;
     background-image: url(../img/login/store.png);
     background-position: center;
 }

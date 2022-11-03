@@ -11,3 +11,4 @@ button.addEventListener('click', (e) => {
 	}
 	console.log(registros)
 })
+
